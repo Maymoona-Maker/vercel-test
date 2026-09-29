@@ -50,9 +50,10 @@ async def test_codecraft():
             )
 
         return {
-            "status_code": response.status_code,
-            "codecraft_response": response.json()
-        }
+    "status_code": response.status_code,
+    "content_type": response.headers.get("content-type"),
+    "codecraft_response": response.text
+}
 
     except Exception as e:
         raise HTTPException(
